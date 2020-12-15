@@ -4,7 +4,7 @@ const ArticleGridItem = ({date, title, paragraph, color = '#007bff'}) => {
 
     const titleSubSstring = title.length > 40 && `${ title.substring(0, 40)} ...` ;
     const paragraphSubSstring = paragraph.length > 300 && `${ paragraph.substring(0, 300)} ...` ;
-    console.log(color)
+
     return (
         <>
         <div className="card text-white text-left p-3" style={{backgroundColor: `${color}` }}>
