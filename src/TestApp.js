@@ -1,3 +1,4 @@
+import { ArticleGrid } from "./components/ArticleGrid";
 import Header from "./components/Header"
 
 const TestApp = () => {
@@ -8,6 +9,7 @@ const TestApp = () => {
     return (
         <div className="container">
             <Header title={title} paragraph={paragraph}/>
+            <ArticleGrid/>
         </div>
     );
 }
