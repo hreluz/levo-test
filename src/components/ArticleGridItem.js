@@ -1,4 +1,6 @@
-export const ArticleGridItem = ({date, title, paragraph}) => {
+import PropTypes from 'prop-types';
+
+const ArticleGridItem = ({date, title, paragraph}) => {
     return (
         <>
         <div className="card bg-primary text-white text-center p-3">
@@ -14,3 +16,11 @@ export const ArticleGridItem = ({date, title, paragraph}) => {
         </>
     );
 }
+
+ArticleGridItem.propTypes = {
+    date: PropTypes.string.isRequired,
+    paragraph: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+}
+
+export default ArticleGridItem;

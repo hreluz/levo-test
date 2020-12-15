@@ -1,4 +1,4 @@
-import { ArticleGridItem } from "./ArticleGridItem";
+import ArticleGridItem from "./ArticleGridItem";
 
 export const ArticleGrid = () => {
 
