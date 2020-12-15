@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 
-const ArticleGridItem = ({date, title, paragraph}) => {
+const ArticleGridItem = ({date, title, paragraph, color = '#007bff'}) => {
 
     const titleSubSstring = title.length > 40 && `${ title.substring(0, 40)} ...` ;
     const paragraphSubSstring = paragraph.length > 300 && `${ paragraph.substring(0, 300)} ...` ;
-
+    console.log(color)
     return (
         <>
-        <div className="card bg-primary text-white text-left p-3">
+        <div className="card text-white text-left p-3" style={{backgroundColor: `${color}` }}>
             <small className="text-left">{ date }</small>
             <blockquote className="blockquote mb-0">
                 <p>{titleSubSstring}</p>
@@ -24,7 +24,8 @@ const ArticleGridItem = ({date, title, paragraph}) => {
 ArticleGridItem.propTypes = {
     date: PropTypes.string.isRequired,
     paragraph: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    color: PropTypes.string
 }
 
 export default ArticleGridItem;

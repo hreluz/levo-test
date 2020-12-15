@@ -9,6 +9,7 @@ export const ArticleGrid = () => {
     return (
         <div className="card-columns">
               <ArticleGridItem 
+                color='#f59926'
                 date={date}
                 title={title}
                 paragraph={paragraph}/>
