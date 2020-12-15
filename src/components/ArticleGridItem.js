@@ -8,7 +8,7 @@ const ArticleGridItem = ({date, title, paragraph, color = '#007bff'}) => {
     return (
         <>
         <div className="card text-white text-left p-3" style={{backgroundColor: `${color}` }}>
-            <small className="text-left">{ date }</small>
+            <small>{ date }</small>
             <blockquote className="blockquote mb-0">
                 <p>{titleSubSstring}</p>
                 <div className="blockquote-footer text-white">
