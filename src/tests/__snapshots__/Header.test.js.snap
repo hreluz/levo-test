@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test in Header it should show <Header/> correctly 1`] = `
+<div
+  className="row mt-2"
+>
+  <div
+    className="col"
+  >
+    <h1
+      className="text-danger"
+    >
+      A title
+    </h1>
+    <p>
+      This is a paragraph to show for the test
+    </p>
+  </div>
+</div>
+`;
