@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Header = ({title, paragraph}) => {
     return (
         <div className="row mt-2">
@@ -8,4 +10,10 @@ const Header = ({title, paragraph}) => {
         </div>
     );
 }
+
+Header.propTypes = {
+    title: PropTypes.string.isRequired,
+    paragraph: PropTypes.string.isRequired
+}
+
 export default Header;
