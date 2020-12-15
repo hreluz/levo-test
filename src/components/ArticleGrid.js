@@ -1,24 +1,60 @@
 import ArticleGridItem from "./ArticleGridItem";
+import {useFetchArticles} from '../hooks/useFetchArticles'
+import {useState} from 'react'
 
-export const ArticleGrid = () => {
+export const ArticleGrid = () => {    
+    const {data:articles, loading} = useFetchArticles();
 
-    const date = '12 Sep 2018';
-    const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat';
-    const paragraph = ' It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for  lorem impsum will uncover many web sites still in their infancy';
-    const colors = ['#f59926', '#4aadde', '#ab75ad'];
+    const first3Articles = articles.slice(0,3);
+    const moreArticles = articles.slice(3, articles.length);
+    const [showMoreArticles, setshowMoreArticles] = useState(false);
+
+    const showMore = () =>{
+        setshowMoreArticles(!showMoreArticles)
+    };
 
     return (
-        <div className="card-columns">
-            {
-                colors.map( color => (
-                    <ArticleGridItem 
-                      key={color}
-                      color={color}
-                      date={date}
-                      title={title}
-                      paragraph={paragraph}/>
+        <div>
+            { loading && <p>Loading </p> }
 
-                ))
+            <div className="card-columns">
+                {
+                    first3Articles.map( article => (
+                        <ArticleGridItem 
+                        key={article.id}
+                        color={article.color}
+                        date={article.date}
+                        title={article.title}
+                        paragraph={article.paragraph}/>
+
+                    ))
+                }
+            </div>
+         
+            <div className="card-columns">
+                {
+                    showMoreArticles  && 
+                    moreArticles.map( article => (
+                        <ArticleGridItem 
+                        key={article.id}
+                        color={article.color}
+                        date={article.date}
+                        title={article.title}
+                        paragraph={article.paragraph}/>
+    
+                    ))
+                }
+            </div>
+
+            {
+                !loading && !showMoreArticles &&
+                    <div className="row">
+                        <div className="col text-center">
+                        <   button type="button" 
+                                    onClick={showMore}
+                                    className="btn btn-outline-danger">Read More</button>
+                        </div>
+                    </div>
             }
         </div>
     )

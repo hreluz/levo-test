@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 
 const ArticleGridItem = ({date, title, paragraph, color = '#007bff'}) => {
 
-    const titleSubSstring = title.length > 40 && `${ title.substring(0, 40)} ...` ;
-    const paragraphSubSstring = paragraph.length > 300 && `${ paragraph.substring(0, 300)} ...` ;
+    const titleSubSstring = title.length > 40 ? `${ title.substring(0, 40)} ...`  : title;
+    const paragraphSubSstring = paragraph.length > 300 ? `${ paragraph.substring(0, 300)} ...` : paragraph;
 
     return (
         <>
